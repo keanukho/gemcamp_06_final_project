@@ -313,4 +313,12 @@ Devise.setup do |config|
 
   config.navigational_formats = ['*/*', :html, :turbo_stream]
 
+  # Devise.setup do |config|
+  #   # ... other Devise configurations
+  #
+  #   # Define paths for user and admin sessions (if applicable)
+  #   config.paths.users = '/users'  # Adjust if your user path is different
+  #   config.paths.admin = '/admin'  # Add this line if you have a separate admin path
+  # end
+
 end

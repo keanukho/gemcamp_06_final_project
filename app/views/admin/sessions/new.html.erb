@@ -1,0 +1,51 @@
+<section class="vh-100" style="background-color: #9A616D;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                   alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in admin</h2>
+
+                <%= form_for(resource, as: resource_name, url: admin_user_session_path) do |f| %>
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg mb-4" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg mb-4" %>
+                  </div>
+
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                  <% end %>
+
+                  <div class="pt-1 mb-4">
+                    <%= f.submit "Log in", class: "btn btn-dark btn-lg btn-block" %>
+                  </div>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<%#= render "devise/shared/links" %>
