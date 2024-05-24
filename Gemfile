@@ -67,5 +67,6 @@ group :development do
   # gem "spring"
   gem 'devise'
   gem 'faker'
+  gem 'carrierwave'
   gem 'phonelib'
 end

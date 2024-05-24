@@ -1,0 +1,9 @@
+
+<%= form_with model: @user, url: client_profile_path(@user), method: :patch, local: true do |form| %>
+  <%= form.file_field :picture %>
+  <%= form.text_field :phone %>
+  <%= form.text_field :username %>
+  <%= form.password_field :current_password, placeholder: 'Current Password' %>
+  <%= form.password_field :password, placeholder: 'New Password (optional)' %>
+  <%= form.submit 'Update' %>
+<% end %>

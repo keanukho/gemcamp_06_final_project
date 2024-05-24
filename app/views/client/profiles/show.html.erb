@@ -1,0 +1,7 @@
+<h1>User Profile</h1>
+<p>Username: <%= @user.username %></p>
+<p>Phone Number: <%= @user.phone %></p>
+
+<%= image_tag @user.image.url if @user.image.present? %>
+
+<%= link_to 'edit profiles', edit_client_profile_path %>
