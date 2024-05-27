@@ -69,5 +69,6 @@ group :development do
   gem 'faker'
   gem 'carrierwave'
   gem 'rest-client'
+  gem 'rqrcode'
   gem 'phonelib'
 end

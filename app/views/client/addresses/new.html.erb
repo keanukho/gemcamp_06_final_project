@@ -1,0 +1,62 @@
+<h1>Edit Address</h1>
+
+<%= form_with(model: @address, url: new_client_address_path(@address), data: { controller: :location, turbo: false }) do |form| %>
+
+  <div>
+    <%= form.label :street_address %>
+    <%= form.text_field :street_address %>
+  </div>
+  <div>
+    <%= form.label :address_region_id, 'Region' %>
+    <%= form.collection_select :address_region_id,
+                               Address::Region.all, :id, :name,
+                               { prompt: 'Please select region' },
+                               data: { location_target: 'selectedRegionId', action: 'change->location#fetchProvinces' } %>
+  </div>
+  <div>
+    <%= form.label :address_province_id, 'Province' %>
+    <%= form.collection_select :address_provinces_id,
+                               [], nil, nil,
+                               { prompt: 'Please select province' },
+                               data: { location_target: 'selectProvinceId', action: 'change->location#fetchCities' } %>
+  </div>
+  <div>
+    <%= form.label :address_city_id, 'City' %>
+    <%= form.collection_select :address_city_id,
+                               [], nil, nil,
+                               { prompt: 'Please select city' },
+                               data: { location_target: 'selectCityId', action: 'change->location#fetchBarangays' } %>
+  </div>
+  <div>
+    <%= form.label :address_barangay_id, 'Barangay' %>
+    <%= form.collection_select :address_barangay_id,
+                               [], nil, nil,
+                               { prompt: 'Please select Barangay' },
+                               data: { location_target: 'selectBarangayId' } %>
+  </div>
+  <div>
+    <%= form.label :genre %>
+    <%= form.select :genre, options_for_select(Address.genres.keys.map { |genre| [genre.titleize, genre] }, @address.genre) %>
+  </div>
+  <div>
+    <%= form.label :contact_person %>
+    <%= form.text_field :contact_person %>
+  </div>
+  <div>
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number %>
+  </div>
+  <div>
+    <%= form.label :remark %>
+    <%= form.text_area :remark %>
+  </div>
+  <div>
+    <%= form.label :is_default %>
+    <%= form.check_box :is_default %>
+  </div>
+  <div>
+    <%= form.submit 'Update Address' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', client_addresses_path %>
