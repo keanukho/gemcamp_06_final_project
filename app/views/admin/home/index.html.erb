@@ -1,0 +1,17 @@
+
+<div class="container text-sm" style="padding: 20px;">
+  <h1>All Users</h1>
+  <% @users.each do |user| %>
+    <div class="text-sm">
+      <p><strong>Email:</strong> <%= user.email %></p>
+      <p><strong>Parent Email:</strong> <%= user.parent&.email %></p>
+      <p><strong>Total Deposit:</strong> <%= user.total_deposit %></p>
+      <p><strong>Member Total Deposits:</strong> <%= user.children.sum(:total_deposit) %></p>
+      <p><strong>Coins:</strong> <%= user.coins %></p>
+      <p><strong>Total Used Coins:</strong></p>
+      <p><strong>Children Members:</strong> <%= user.children_members %></p>
+      <hr>
+    </div>
+  <% end %>
+  <%= paginate @users %>
+</div>

@@ -70,5 +70,7 @@ group :development do
   gem 'carrierwave'
   gem 'rest-client'
   gem 'rqrcode'
+  gem 'active_model_serializers'
   gem 'phonelib'
+  gem 'kaminari'
 end
